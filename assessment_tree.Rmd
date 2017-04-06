@@ -14,30 +14,14 @@ library("readxl")
 
 Assessment decision tree for tool selection based on answer types. Select the item type you want to use and find out what kind of assessment application to use.
 
-```{r}
-question.type <- c("Multibple choice", "Multibple answer", "Numeric", "Text")
-options <- c("a","b","c")
-
-text         <- "Text"
-text.options <- c("Single word","One Paragraph", "Two Paragraphs", "Page")
-expand.grid(text, text.options)
-
-assessment.tree <- expand.grid(question.type, options)
-
-read_excel("assessment_tree.xlsx")
-
-# assessment.tree <- read_excel("assessment_tree.xlsx")
+```{r, echo=FALSE}
+assessment.tree <- read_excel("assessment_tree.xlsx")
 
 collapsibleTree(
   assessment.tree,
-  hierarchy = c("Var1", "Var2"),
+  root = "Question Type",
+  hierarchy = c("question.type", "question.options", "application"),
   width = 800
 )
-
-# collapsibleTree(
-#   assessment.tree,
-#   hierarchy = c("question.type", "question.options", "application"),
-#   width = 800
-# )
 ```
 
