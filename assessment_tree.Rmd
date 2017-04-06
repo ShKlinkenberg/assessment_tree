@@ -27,8 +27,14 @@ assessment.tree$pathString <- paste("Question Type",
                                     assessment.tree$application,
                                     sep = "/")
 
+# Get rid of NA/
+
+assessment.tree$pathString <- gsub("NA/", "", assessment.tree$pathString)
+
 at <- as.Node(assessment.tree)
 print(at, "question.type", "question.options", "application", limit = 20)
+
+at <- as.data.frame(at)
 
 collapsibleTree(
   # assessment.tree,
