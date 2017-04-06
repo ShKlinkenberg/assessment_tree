@@ -8,8 +8,10 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 # install.packages("collapsibleTree")
+# install.packages("data.tree")
 library("collapsibleTree")
 library("readxl")
+library("data.tree")
 ```
 
 Assessment decision tree for tool selection based on answer types. Select the item type you want to use and find out what kind of assessment application to use.
@@ -17,8 +19,20 @@ Assessment decision tree for tool selection based on answer types. Select the it
 ```{r, echo=FALSE}
 assessment.tree <- read_excel("assessment_tree.xlsx")
 
+# use data tree
+
+assessment.tree$pathString <- paste("Question Type", 
+                                    assessment.tree$question.type, 
+                                    assessment.tree$question.options,
+                                    assessment.tree$application,
+                                    sep = "/")
+
+at <- as.Node(assessment.tree)
+print(at, "question.type", "question.options", "application", limit = 20)
+
 collapsibleTree(
-  assessment.tree,
+  # assessment.tree,
+  at,
   root = "Question Type",
   hierarchy = c("question.type", "question.options", "application"),
   width = 800
