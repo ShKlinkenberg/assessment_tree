@@ -1,0 +1,15 @@
+---
+title: "Assessment tree"
+author: "Klinkenberg"
+date: "4/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# install.packages("collapsibleTree")
+library("collapsibleTree")
+```
+
+Assessment decision tree for tool selection based on answer types. Select the item type you want to use and find out what kind of assessment application to use.
+
