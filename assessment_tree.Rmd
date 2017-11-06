@@ -21,12 +21,13 @@ assessment.tree <- read_excel("assessment_tree.xlsx")
 
 assessment.tree[is.na(assessment.tree)] <- ""
 
-collapsibleTree(
-  assessment.tree,
-  root = "Question Type",
-  hierarchy = c("question.type", "question.options", "application"),
-  width    = 800,
-  fontSize = 14
-)
+column.names <- names(assessment.tree)
+
+collapsibleTree(assessment.tree,
+                root      = "Question Type",
+                hierarchy = column.names,
+                width     = 800,
+                fontSize  = 14
+               )
 ```
 
