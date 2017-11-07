@@ -1,14 +1,16 @@
 ---
-title: "Assessment Tree"
-author: "Klinkenberg"
-date: "4/6/2017"
-output: html_document
+title  : "Assessment Tree"
+author : "Klinkenberg"
+date   : "4/6/2017"
+output : html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Install the following three packages if not available.
+
 # install.packages("collapsibleTree")
 # install.packages("data.tree")
+# install.packages("readxl")
 library("collapsibleTree")
 library("readxl")
 library("data.tree")
@@ -17,17 +19,15 @@ library("data.tree")
 Assessment decision tree for tool selection based on answer types. Select the item type you want to use and find out what kind of assessment application to use.
 
 ```{r, echo=FALSE}
+# Read .xlsx file
 assessment.tree <- read_excel("assessment_tree.xlsx")
 
-assessment.tree[is.na(assessment.tree)] <- ""
-
-column.names <- names(assessment.tree)
-
+# Create tree
 collapsibleTree(assessment.tree,
-                root      = "Question Type",
-                hierarchy = column.names,
-                width     = 800,
-                fontSize  = 14
+                root      = "Question Type",        # Specify root name. This can be any string
+                hierarchy = names(assessment.tree), # Use column headers from .xlsx file as branches
+                width     = 800,                    # Set width in pixels
+                fontSize  = 14                      # Set font size
                )
 ```
 
