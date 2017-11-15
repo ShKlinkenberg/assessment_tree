@@ -31,3 +31,9 @@ collapsibleTree(assessment.tree,
                )
 ```
 
+Here the application categories are:
+
+* Generic assessment tool (e.g. QMP, Remindo, TestVision)
+* Grading tool for written assignments (e.g. TurnitIn, GradeWorks)
+* Parameterised assessment tool (e.g. MapleTA, SOWISO)
+* LMS (Blackboard, Canvas)
