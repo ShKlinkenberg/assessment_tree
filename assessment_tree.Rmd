@@ -8,9 +8,9 @@ output : html_document
 ```{r setup, include=FALSE}
 # Install the following three packages if not available.
 
-# install.packages("collapsibleTree")
-# install.packages("data.tree")
-# install.packages("readxl")
+if(!"collapsibleTree" %in% installed.packages()) { install.packages("collapsibleTree") };
+if(!"data.tree"       %in% installed.packages()) { install.packages("data.tree")       };
+if(!"readxl"          %in% installed.packages()) { install.packages("readxl")          };
 library("collapsibleTree")
 library("readxl")
 library("data.tree")
